@@ -3,6 +3,17 @@ import requests
 import json
 import os 
 
+def directory_process(pth):
+    current_directory = os.getcwd()
+    pth = os.path.join(current_directory, pth)
+    if os.path.exists(pth):
+        return pth
+    pth = f'personal_portfolio/{pth}'
+    pth = os.path.join(current_directory, pth)
+    if os.path.exists(pth):
+        return pth
+    return None
+        
 def get_cover_photos():
     owner = "hunthinniap"
     repo = "portfolio_asset"
@@ -21,10 +32,7 @@ def get_cover_photos():
         photo_info["link"] = f'/photography/{photo_info["title"]}'
         photo_collections.append(photo_info)
         cover_collections.append(photo_info["title"])
-    pth = "photo_data/cover_photos.json"
-    current_directory = os.getcwd()
-    
-    pth = os.path.join(current_directory, pth)
+    pth = directory_process(pth)
     with open(pth, "w") as outfile:
         json.dump(photo_collections, outfile)
     return cover_collections
@@ -48,9 +56,7 @@ def get_collection_details(collection_name):
         photo_info["alt"] = ""
         photo_collections.append(photo_info)
     pth = f"photo_data/{collection_name}.json"
-    current_directory = os.getcwd()
-    
-    pth = os.path.join(current_directory, pth)
+    pth = directory_process(pth)
     with open(pth, "w") as outfile:
         json.dump(photo_collections, outfile)
 
