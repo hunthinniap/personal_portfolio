@@ -9,7 +9,7 @@ def read_cover():
     
     pth = directory_process(pth)
     if pth is None:
-        get_cover_photos(pth)
+        get_cover_photos()
     with open(pth, "r") as file:
         cover_photos = json.load(file)
     return cover_photos
