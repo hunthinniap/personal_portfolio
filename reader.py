@@ -6,6 +6,9 @@ from text_data import page_alt, page_description
 
 def read_cover():
     pth = "photo_data/cover_photos.json"
+    current_directory = os.getcwd()
+
+    print("The current working directory is:", current_directory)
     if not os.path.exists(pth):
         get_cover_photos()
     with open(pth, "r") as file:
