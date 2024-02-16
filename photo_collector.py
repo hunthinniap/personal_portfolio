@@ -1,7 +1,7 @@
 # Replace 'owner', 'repo', and 'path_to_folder' with actual values
 import requests
 import json
-
+import os 
 
 def get_cover_photos():
     owner = "hunthinniap"
@@ -21,8 +21,11 @@ def get_cover_photos():
         photo_info["link"] = f'/photography/{photo_info["title"]}'
         photo_collections.append(photo_info)
         cover_collections.append(photo_info["title"])
-
-    with open("photo_data/cover_photos.json", "w") as outfile:
+    pth = "photo_data/cover_photos.json"
+    current_directory = os.getcwd()
+    
+    pth = os.path.join(current_directory, pth)
+    with open(pth, "w") as outfile:
         json.dump(photo_collections, outfile)
     return cover_collections
 
@@ -44,8 +47,11 @@ def get_collection_details(collection_name):
         photo_info["src"] = content_file["download_url"]
         photo_info["alt"] = ""
         photo_collections.append(photo_info)
-
-    with open(f"photo_data/{collection_name}.json", "w") as outfile:
+    pth = f"photo_data/{collection_name}.json"
+    current_directory = os.getcwd()
+    
+    pth = os.path.join(current_directory, pth)
+    with open(pth, "w") as outfile:
         json.dump(photo_collections, outfile)
 
 
