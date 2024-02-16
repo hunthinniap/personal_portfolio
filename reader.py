@@ -5,14 +5,14 @@ from text_data import page_alt, page_description
 
 
 def read_cover():
-    url = "https://raw.githubusercontent.com/hunthinniap/personal_portfolio/main/photo_data/cover_photos.json"
+    url = "https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/Photography/cover_photos/photos.json"
     response = requests.get(url)
     cover_photos = json.loads(response.text)
     return cover_photos
 
 
 def read_collections(collection_name):
-    url = f"https://raw.githubusercontent.com/hunthinniap/personal_portfolio/main/photo_data/{collection_name}.json"
+    url = f"https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/Photography/{collection_name}/photos.json"
 
     response = requests.get(url)
     collections = json.loads(response.text)
@@ -27,4 +27,4 @@ def read_page_description(page):
     return page_description.get(page, "")
 
 
-print(read_cover())
+
