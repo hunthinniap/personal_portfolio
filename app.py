@@ -42,7 +42,11 @@ def photo_collection(collection_name):
     title = read_page_title(collection_name)
     description = read_page_description(collection_name)
     return render_template(
-        "photo_collections.html", photos=photos, title=title, description=description
+        "photo_collections.html",
+        page=collection_name,
+        photos=photos,
+        title=title,
+        description=description,
     )
 
 

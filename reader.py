@@ -13,7 +13,6 @@ def read_cover():
 
 def read_collections(collection_name):
     url = f"https://raw.githubusercontent.com/hunthinniap/personal_portfolio/main/photo_data/{collection_name}.json"
-    
 
     response = requests.get(url)
     collections = json.loads(response.text)
@@ -26,5 +25,6 @@ def read_page_title(page):
 
 def read_page_description(page):
     return page_description.get(page, "")
+
 
 print(read_cover())
