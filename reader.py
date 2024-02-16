@@ -18,6 +18,9 @@ def read_cover():
 
 def read_collections(collection_name):
     pth = f"photo_data/{collection_name}.json"
+    current_directory = os.getcwd()
+    
+    pth = os.path.join(current_directory, pth)
     if not os.path.exists(pth):
         get_collection_details(collection_name)
     with open(pth, "r") as file:
