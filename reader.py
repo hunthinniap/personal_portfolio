@@ -1,6 +1,6 @@
 import json
 import requests
-from photo_collector import get_cover_photos, get_collection_details, directory_process
+
 from text_data import page_alt, page_description
 
 
