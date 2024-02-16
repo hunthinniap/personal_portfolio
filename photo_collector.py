@@ -32,7 +32,8 @@ def get_cover_photos():
         photo_info["link"] = f'/photography/{photo_info["title"]}'
         photo_collections.append(photo_info)
         cover_collections.append(photo_info["title"])
-        pth = "photo_data/cover_photos.json"
+        
+    pth = "photo_data/cover_photos.json"
     pth = directory_process(pth)
     with open(pth, "w") as outfile:
         json.dump(photo_collections, outfile)
