@@ -1,29 +1,22 @@
 import json
-import os
+import requests
 from photo_collector import get_cover_photos, get_collection_details, directory_process
 from text_data import page_alt, page_description
 
 
 def read_cover():
-    pth = "photo_data/cover_photos.json"
-    
-    pth = directory_process(pth)
-    if pth is None:
-        get_cover_photos()
-    with open(pth, "r") as file:
-        cover_photos = json.load(file)
+    url = "https://raw.githubusercontent.com/hunthinniap/personal_portfolio/main/photo_data/cover_photos.json"
+    response = requests.get(url)
+    cover_photos = json.loads(response.text)
     return cover_photos
 
 
 def read_collections(collection_name):
-    pth = f"photo_data/{collection_name}.json"
+    url = f"https://raw.githubusercontent.com/hunthinniap/personal_portfolio/main/photo_data/{collection_name}.json"
     
-    
-    pth = directory_process(pth)
-    if pth is None:
-        get_collection_details(collection_name)
-    with open(pth, "r") as file:
-        collections = json.load(file)
+
+    response = requests.get(url)
+    collections = json.loads(response.text)
     return collections
 
 
@@ -33,3 +26,5 @@ def read_page_title(page):
 
 def read_page_description(page):
     return page_description.get(page, "")
+
+print(read_cover())
