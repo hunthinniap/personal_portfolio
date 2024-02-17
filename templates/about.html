@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <!-- Add any additional CSS or links here -->
+    <style>
+        .container {
+            width: 80%;
+            border: 2px solid #555;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+        .photo {
+        width: 20%; /* This ensures the photo does not exceed half of the screen width */
+        }
+        .description, .dev-journey {
+            flex: 1;
+            padding: 20px;
+        }
+        .dev-journey {
+            grid-column: 1 / span 2;
+        }
+    </style>
+</head>
+<body>
+<!-- Link to return to the homepage -->
+<a href="/" class="homepage-link">Hookah's Art Space</a>
+
+<div class="bg">
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="/music">Music</a>
+        <a href="/photography">Photography</a>
+        <a href="/videography">Videography</a>
+        <a href="/blog">Blog/Podcast</a>
+        <a href="/about">About</a>
+    </div>
+    
+    <!-- Page specific content goes here -->
+    <div class="content">
+        <!-- Content goes here -->
+        <div class="container">
+            <div class="photo">
+                <!-- Image will go here -->
+                <img src="https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/About/DSC02322.jpeg" alt="Profile Photo">
+            </div>
+            <div class="description">
+                <!-- Static description can go here or you can load it from a file as well -->
+                {{ description | safe }}
+            </div>
+            <div class="dev-journey">
+                <!-- Content loaded from a text file -->
+                {{ dev_journey_content | safe }}
+    </div>
+</div>
+<div class="large-blank-space"></div>
+<!-- Social Media Links Section -->
+<footer class="social-media-footer">
+    <a href="https://github.com/hunthinniap" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/iap.hunthinn/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/yuntianye/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+</footer>
+
+</body>
+</html>
