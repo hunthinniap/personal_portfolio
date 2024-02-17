@@ -9,30 +9,49 @@
     
     <!-- Add any additional CSS or links here -->
     <style>
-        .container {
-            width: 80%;
-            border: 2px solid #555;
+        body {
+            color: #fff;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #6a3c33;
             padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 20x;
         }
         .photo {
-        width: 20%; /* This ensures the photo does not exceed half of the screen width */
+            max-width: 50%;
+            height: auto;
         }
-        .description, .dev-journey {
-            flex: 1;
-            padding: 20px;
+        .text-section {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
         }
-        .dev-journey {
-            grid-column: 1 / span 2;
+        @media (max-width: 768px) {
+            .text-section {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
 <!-- Link to return to the homepage -->
 <a href="/" class="homepage-link">Hookah's Art Space</a>
-
+<div class="header">
+    <h1>Pastime photographer.</h1>
+    <h1>Nighttime independent songwriter.</h1>
+    <h1>Daytime software engineer.</h1>
+</div>
 <div class="bg">
     <!-- Navigation Bar -->
     <div class="nav">
@@ -46,18 +65,12 @@
     <!-- Page specific content goes here -->
     <div class="content">
         <!-- Content goes here -->
-        <div class="container">
-            <div class="photo">
-                <!-- Image will go here -->
-                <img src="https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/About/DSC02322.jpeg" alt="Profile Photo">
-            </div>
-            <div class="description">
-                <!-- Static description can go here or you can load it from a file as well -->
-                {{ description | safe }}
-            </div>
-            <div class="dev-journey">
-                <!-- Content loaded from a text file -->
-                {{ dev_journey_content | safe }}
+        <img class="photo" src="https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/About/DSC02322.jpeg" alt="About Photo">
+        <div class="text-section">
+            <!-- Your text content here -->
+            {{ description | safe }}
+        </div>
+        
     </div>
 </div>
 <div class="large-blank-space"></div>
