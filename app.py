@@ -9,6 +9,8 @@ from reader import (
     read_page_description,
     read_music_cover,
     read_music_specs,
+    read_blog_spces,
+    read_blog_content
 )
 
 
@@ -70,6 +72,16 @@ def photo_collection(collection_name):
         title=title,
         description=description,
     )
+
+@app.route("/blog")
+def blog():
+    specs = read_blog_spces()
+    return render_template("blog.html", specs = specs) 
+
+@app.route("/blog/<blog_name>")
+def blog_template(blog_name):
+    blog = read_blog_content(blog_name)
+    return render_template("blog_template.html", blog = blog) 
 
 @app.route("/about")
 def about():

@@ -41,3 +41,13 @@ def read_page_title(page):
 
 def read_page_description(page):
     return page_description.get(page, "")
+
+def read_blog_spces():
+    url = f"{base_url}/Blog/blog_specs.json"
+    response = requests.get(url)
+    specs = json.loads(response.text)
+    return specs
+
+def read_blog_content(blog_name):
+    url = f"{base_url}Blog/{blog_name}.txt"
+    return requests.get(url).text
