@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import git
+
 import requests
 from reader import (
     read_collections,
@@ -9,6 +10,7 @@ from reader import (
     read_music_cover,
     read_music_specs,
 )
+
 
 app = Flask(__name__)
 
@@ -68,6 +70,18 @@ def photo_collection(collection_name):
         title=title,
         description=description,
     )
+
+@app.route("/about")
+def about():
+    # Read the content from the text file
+    response = requests.get('https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/About/journal.txt')
+    dev_journey_content = response.text
+
+    response = requests.get("https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/About/description.txt")
+    description = response.text 
+        
+    # Render the about.html template with the content of the text file
+    return render_template('about.html', dev_journey_content=dev_journey_content, description=description)
 
 
 @app.route("/template")

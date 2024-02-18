@@ -3,15 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+
+    <title>About</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     
     <!-- Add any additional CSS or links here -->
+
+    <style>
+        body {
+            color: #fff;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #6a3c33;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 20x;
+        }
+        .photo {
+            max-width: 50%;
+            height: auto;
+        }
+        .text-section {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .text-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+
 </head>
 <body>
 <!-- Link to return to the homepage -->
 <a href="/" class="homepage-link">Hookah's Art Space</a>
+
+<div class="header">
+    <h1>Pastime photographer.</h1>
+    <h1>Nighttime independent songwriter.</h1>
+    <h1>Daytime software engineer.</h1>
+</div>
 
 <div class="bg">
     <!-- Navigation Bar -->
@@ -26,6 +71,14 @@
     <!-- Page specific content goes here -->
     <div class="content">
         <!-- Content goes here -->
+
+        <img class="photo" src="https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/About/DSC02322.jpeg" alt="About Photo">
+        <div class="text-section">
+            <!-- Your text content here -->
+            {{ description | safe }}
+        </div>
+        
+
     </div>
 </div>
 <div class="large-blank-space"></div>
