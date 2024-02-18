@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Music</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Add any additional CSS or links here -->
@@ -23,7 +23,7 @@
             width: calc(33.333% - 40px); /* For 3 items per row: 100% divided by 3 minus the total margin */
             margin: 10px; /* Space between cover photos */
             height: 0; /* Set height to 0 and use padding-top to maintain aspect ratio */
-            padding-top: 100%; /* 9:16 aspect ratio (100 / 16 * 9) */
+            padding-top: 56.25%; /* 9:16 aspect ratio (100 / 16 * 9) */
             background-size: cover;
             background-position: center;
             overflow: hidden;
@@ -64,12 +64,13 @@
             width: calc(33.333% - 40px); /* Adjust for 3 items per row, accounting for padding and gap */
             margin: 10px; /* Space between cover photos */
             height: 0; /* Set height to 0 and use padding-top to maintain aspect ratio */
-            padding-top: 56.25%; /* 9:16 aspect ratio (100 / 16 * 9) */
+            padding-top: calc(33.333% - 40px); /* 9:16 aspect ratio (100 / 16 * 9) */
             background-size: cover;
             background-position: center;
             overflow: hidden;
             cursor: pointer; /* Indicates the item is clickable */
         }
+
         .intro-text {
             padding: 20px;
             background-color: transparent; /* Light grey background, adjust the color as needed */
@@ -78,6 +79,7 @@
             margin: auto; /* Center the block horizontally */
         }
         /* ... additional styles ... */
+        
     </style>
 </head>
 <body>
@@ -96,7 +98,7 @@
     <!-- Page specific content goes here -->
     <div class="content">
         <div class="intro-text">
-            <h1>When the click sounds, the serendipitous moment becomes imperishable in the non-stopping time.</h1>
+            <h1> Music is just a means that I captured the feeling and atmosphere at this moment.</h1>
             <p></p>
         </div>
         <div class="photo-collection-gallery">

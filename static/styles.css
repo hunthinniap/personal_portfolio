@@ -11,7 +11,7 @@ body, html {
 }
 .nav a {
     text-decoration: none;
-    color: white;
+    color: black;
     padding: 10px;
     border: none;
     background: none;
@@ -99,7 +99,7 @@ body, html {
     left: 0;
     padding: 10px;
     font-size: 1.5em;
-    color: white; /* Adjust color to fit your design */
+    color: black; /* Adjust color to fit your design */
     text-decoration: none;
     background: transparent; /* Semi-transparent background */
     border-radius: 0 0 5px 0; /* Rounded bottom right corner */
