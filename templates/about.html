@@ -42,12 +42,18 @@
             display: flex;
             justify-content: space-around;
             text-align: center;
-            font-size: large;
+            font-size: xx-large;
         }
         @media (max-width: 768px) {
             .text-section {
                 flex-direction: column;
             }
+        }
+        .dev-journey {
+        flex: 1;
+        padding: 20px;
+        margin-left: 100px;
+        margin-right: 100px;
         }
     </style>
 
@@ -80,9 +86,13 @@
         <div class="text-section">
             <!-- Your text content here -->
             {{ description | safe }}
+
         </div>
         
-
+    </div>
+    <div class="dev-journey">
+        <h3> Developer's Journal</h3>
+        {{ dev_journey_content.replace('\n', '<br>') | safe }}
     </div>
 </div>
 <div class="large-blank-space"></div>
