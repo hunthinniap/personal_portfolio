@@ -62,5 +62,6 @@ def read_video_link(video_name):
     url = f"{base_url}/videography/specs.json"
     response = requests.get(url)
     specs = json.loads(response.text)
-    if specs['title'] == video_name:
-        return specs['ytb_id']
+    for spec in specs:
+        if spec['title'] == video_name:
+            return spec['ytb_id']
