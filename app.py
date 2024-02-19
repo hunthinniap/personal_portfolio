@@ -10,7 +10,9 @@ from reader import (
     read_music_cover,
     read_music_specs,
     read_blog_spces,
-    read_blog_content
+    read_blog_content,
+    read_video_link,
+    read_video_specs,
 )
 
 
@@ -81,7 +83,12 @@ def blog():
 @app.route("/blog/<blog_name>")
 def blog_template(blog_name):
     blog = read_blog_content(blog_name)
-    return render_template("blog_template.html", blog = blog) 
+    return render_template("blog_template.html", blog = blog, tilte=blog_name) 
+
+@app.route("/videography")
+def videography():
+    specs = read_video_specs()
+    return render_template("videography.html", videos = specs) 
 
 @app.route("/about")
 def about():

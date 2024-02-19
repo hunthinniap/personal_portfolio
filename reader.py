@@ -51,3 +51,16 @@ def read_blog_spces():
 def read_blog_content(blog_name):
     url = f"{base_url}Blog/{blog_name}.txt"
     return requests.get(url).text
+
+def read_video_specs():
+    url = f"{base_url}/videography/specs.json"
+    response = requests.get(url)
+    specs = json.loads(response.text)
+    return specs
+
+def read_video_link(video_name):
+    url = f"{base_url}/videography/specs.json"
+    response = requests.get(url)
+    specs = json.loads(response.text)
+    if specs['title'] == video_name:
+        return specs['ytb_id']

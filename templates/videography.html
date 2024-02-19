@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>Videography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     
@@ -13,6 +13,19 @@
             margin: 0;
             margin-left: 200px;
             margin-right: 200px;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-cover {
+            width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -34,7 +47,19 @@
     <div class="content">
         <!-- Content goes here -->
         <div class="large-blank-space"></div>
-        <div class="Blog box"> {{ blog.replace('\n', '<br>') | safe }}</div>
+        <div class="video-grid">
+            <!-- Iterate over videos and create an item for each one -->
+            {% for video in videos %}
+                <div class="video-item">
+                    <!-- Wrap the image in a link that redirects to the specified URL -->
+                    <a href="{{ url_for('videography', title=video.title) }}">
+                        <img class="video-cover" src="{{ video.img_src }}" alt="Video cover for {{ video.title }}">
+                    </a>
+                    <h3>{{ video.title }}</h3>
+                    <p>{{ video.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 <div class="large-blank-space"></div>
