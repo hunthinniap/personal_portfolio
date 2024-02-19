@@ -49,8 +49,9 @@ def read_blog_spces():
     return specs
 
 def read_blog_content(blog_name):
+    podcast_list = ["7 Songs About Summer"]
     url = f"{base_url}Blog/{blog_name}.txt"
-    return requests.get(url).text
+    return requests.get(url).text, blog_name in podcast_list
 
 def read_video_specs():
     url = f"{base_url}/videography/specs.json"
@@ -65,3 +66,7 @@ def read_video_link(video_name):
     for spec in specs:
         if spec['title'] == video_name:
             return spec['ytb_id']
+
+def read_podcast_specs(podcast_name):
+    d = {"7 Songs About Summer": {"sc_id":"1752031191","sc_name":"7-songs-about-summer"} }
+    return d.get(podcast_name,None)

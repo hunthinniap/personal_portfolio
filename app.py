@@ -13,6 +13,7 @@ from reader import (
     read_blog_content,
     read_video_link,
     read_video_specs,
+    read_podcast_specs,
 )
 
 
@@ -82,8 +83,12 @@ def blog():
 
 @app.route("/blog/<blog_name>")
 def blog_template(blog_name):
-    blog = read_blog_content(blog_name)
-    return render_template("blog_template.html", blog = blog, tilte=blog_name) 
+    blog, is_podcast = read_blog_content(blog_name)
+    if is_podcast:
+        specs = read_podcast_specs(blog_name)
+        return render_template("blog_template_podcast.html", blog = blog, title=blog_name,specs = specs)
+    else:
+        return render_template("blog_template.html", blog = blog, title=blog_name) 
 
 @app.route("/videography")
 def videography():
