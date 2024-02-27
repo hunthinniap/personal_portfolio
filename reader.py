@@ -43,7 +43,7 @@ def read_page_description(page):
     return page_description.get(page, "")
 
 def read_blog_spces():
-    url = f"{base_url}/Blog/blog_specs.json"
+    url = f"{base_url}Blog/specs.json"
     response = requests.get(url)
     specs = json.loads(response.text)
     return specs
