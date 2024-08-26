@@ -60,23 +60,22 @@
         /* Styles for the photography collections */
         .photo-collection-gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 10px; /* Adjust spacing between photos */
+            flex-direction: column; /* Align items in a single column */
+            align-items: center; /* Center align items horizontally */
+            padding: 20px; /* Space around the entire gallery */
         }
 
         .collection-cover {
             position: relative;
-            width: 100%; /* For 3 items per row: 100% divided by 3 minus the total margin */
-            margin: 10px; /* Space between cover photos */
-            height: 100%; /* Set height to 0 and use padding-top to maintain aspect ratio */
-            padding-top: 1000px; /* 9:16 aspect ratio (100 / 16 * 9) */
+            width: 100%; /* Full width of the container */
+            margin: 10px 0; /* Space between cover photos, only vertical margin needed */
+            height: 0; /* Set height to 0 and use padding-top to maintain aspect ratio */
+            padding-top: 56.25%; /* Maintain aspect ratio (16:9 in this case) */
             background-size: cover;
             background-position: center;
             overflow: hidden;
             cursor: pointer; /* Indicates the item is clickable */
         }
-
 
         .collection-cover::before {
             content: attr(data-title); /* Use the data-title attribute for the content */
@@ -99,30 +98,12 @@
             top: 0;
         }
 
-        .photo-collection-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between; /* This will provide space between the items */
-            padding: 20px; /* Space around the entire gallery */
-        }
-
-        .collection-cover {
-            position: relative;
-            width: 90%; /* Adjust for 3 items per row, accounting for padding and gap */
-            margin: 10px; /* Space between cover photos */
-            height: 0; /* Set height to 0 and use padding-top to maintain aspect ratio */
-            padding-top: 10px; /* 9:16 aspect ratio (100 / 16 * 9) */
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-            cursor: pointer; /* Indicates the item is clickable */
-        }
 
         .intro-text {
             padding: 20px;
             background-color: transparent; /* Light grey background, adjust the color as needed */
             text-align: center; /* Center the text inside the block */
-            width: 90%; /* Set the width to 1/4 of the parent element */
+            width: 25%; /* Set the width to 1/4 of the parent element */
             margin: auto; /* Center the block horizontally */
         }
         /* ... additional styles ... */
@@ -134,9 +115,16 @@
 
 <div class="bg">
     <!-- Navigation Bar -->
-    <div class="icon-container">
-        <i class="fas fa-bars" id="menu-icon"></i>
+    <div class="popup" id="menu-popup">
+        <ul>
+            <li><a href="/music">Music</a></li>
+            <li><a href="/photography">Photography</a></li>
+            <li><a href="/videography">Videography</a></li>
+            <li><a href="/blog">Blog&Podcast</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
     </div>
+    
     
     <!-- Page specific content goes here -->
     <div class="content">
