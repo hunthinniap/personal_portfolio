@@ -30,7 +30,8 @@ def read_music_cover():
 
 
 def read_music_specs(music_name):
-    url = f"{base_url}/music/{music_name}/specs.json"
+    url = f"{base_url}music/{music_name}/specs.json"
+    print(url)
     response = requests.get(url)
     specs = json.loads(response.text)
     return specs
@@ -71,3 +72,4 @@ def read_video_link(video_name):
 def read_podcast_specs(podcast_name):
     d = {"7 Songs About Summer": {"sc_id":"1752031191","sc_name":"7-songs-about-summer"} }
     return d.get(podcast_name,None)
+
