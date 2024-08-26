@@ -56,7 +56,7 @@ def photography():
 @app.route("/music")
 def music():
     cover_collections = read_music_cover()
-    return render_template("music.html", collections=cover_collections)
+    return render_template(g.header+"music.html", collections=cover_collections)
 
 
 @app.route("/music/<music_title>")
