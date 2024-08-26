@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 import git
 
 import requests
@@ -19,7 +19,14 @@ from reader import (
 
 app = Flask(__name__)
 
+def is_mobile():
+    user_agent = request.headers.get('User-Agent')
+    mobile_agents = ['Mobile', 'Android', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Opera Mini', 'IEMobile']
 
+    for agent in mobile_agents:
+        if agent in user_agent:
+            return True
+    return False
 
 
 @app.route("/git_update", methods=["POST"])
@@ -35,7 +42,10 @@ def git_update():
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    if is_mobile():
+        return render_template('home_mobile.html')  # Mobile version of the site
+    else:
+        return render_template("home.html")
 
 
 @app.route("/photography")

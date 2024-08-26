@@ -3,7 +3,8 @@ import requests
 
 from text_data import page_alt, page_description
 
-base_url = "https://raw.githubusercontent.com/hunthinniap/portfolio_asset/main/"
+branch = 'main'
+base_url = f"https://raw.githubusercontent.com/hunthinniap/portfolio_asset/{branch}/"
 
 
 def read_cover():
