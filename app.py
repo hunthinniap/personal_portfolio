@@ -119,7 +119,7 @@ def about():
     description = response.text 
         
     # Render the about.html template with the content of the text file
-    return render_template('about.html', dev_journey_content=dev_journey_content, description=description)
+    return render_template(g.header+'about.html', dev_journey_content=dev_journey_content, description=description)
 
 
 @app.route("/template")
