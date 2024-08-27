@@ -29,6 +29,8 @@ def before_request():
     g.is_mobile = detect_device()
     if g.is_mobile:
         g.header = 'mobile/'
+    else:
+        g.header = ''
 
 
 @app.route("/git_update", methods=["POST"])
