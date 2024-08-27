@@ -3,79 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music</title>
+    <title>Photography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Add any additional CSS or links here -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* ... existing styles ... */
-        .icon-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        #menu-icon {
-            font-size: 24px;
-            color: black;
-        }
-
-        .popup {
-            position: fixed;
-            top: 60px;
-            right: 10%;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            display: none;
-            z-index: 1001;
-            width: 70%;  /* Adjust width as needed */
-            height: 50%;
-            text-align: center;
-            align-items: center;
-        }
-
-        .popup ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .popup ul li {
-            margin-bottom: 10px;
-        }
-
-        .popup ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 50px;
-        }
-
-        .popup ul li a:hover {
-            text-decoration: underline;
-        }
-
+        
         /* Styles for the photography collections */
         .photo-collection-gallery {
             display: flex;
-            flex-direction: column; /* Align items in a single column */
-            align-items: center; /* Center align items horizontally */
-            padding: 20px; /* Space around the entire gallery */
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: -10px; /* Adjust spacing between photos */
         }
 
         .collection-cover {
             position: relative;
-            width: 100%; /* Full width of the container */
-            margin: 10px 0; /* Space between cover photos, only vertical margin needed */
+            width: 100%; /* For 3 items per row: 100% divided by 3 minus the total margin */
+            margin: 10px; /* Space between cover photos */
             height: 0; /* Set height to 0 and use padding-top to maintain aspect ratio */
-            padding-top: 100%; /* Maintain aspect ratio (16:9 in this case) */
+            padding-top: 56.25%; /* 9:16 aspect ratio (100 / 16 * 9) */
             background-size: cover;
             background-position: center;
             overflow: hidden;
             cursor: pointer; /* Indicates the item is clickable */
         }
+
 
         .collection-cover::before {
             content: attr(data-title); /* Use the data-title attribute for the content */
@@ -98,6 +54,25 @@
             top: 0;
         }
 
+        .photo-collection-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-between; /* This will provide space between the items */
+            padding: 20px; /* Space around the entire gallery */
+        }
+
+        .collection-cover {
+            position: relative;
+            width: 100%; /* Adjust for 3 items per row, accounting for padding and gap */
+            margin: 10px; /* Space between cover photos */
+            height: 0; /* Set height to 0 and use padding-top to maintain aspect ratio */
+            padding-top: 56.25%; /* 9:16 aspect ratio (100 / 16 * 9) */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            cursor: pointer; /* Indicates the item is clickable */
+        }
 
         .intro-text {
             padding: 20px;
@@ -115,14 +90,8 @@
 
 <div class="bg">
     <!-- Navigation Bar -->
-    <div class="popup" id="menu-popup">
-        <ul>
-            <li><a href="/music">Music</a></li>
-            <li><a href="/photography">Photography</a></li>
-            <li><a href="/videography">Videography</a></li>
-            <li><a href="/blog">Blog&Podcast</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
+    <div class="icon-container">
+        <i class="fas fa-bars" id="menu-icon"></i>
     </div>
     <div class="popup" id="menu-popup">
         <ul>
@@ -147,11 +116,10 @@
         });
     </script>
     
-    
     <!-- Page specific content goes here -->
     <div class="content">
         <div class="intro-text">
-            <h1> Music is just a means that I captured the feeling and atmosphere at this moment.</h1>
+            <h1>When the click sounds, the serendipitous moment becomes imperishable in the non-stopping time.</h1>
             <p></p>
         </div>
         <div class="photo-collection-gallery">
@@ -164,7 +132,6 @@
         
     </div>
 </div>
-
 
 <div class="large-blank-space"></div>
 <!-- Social Media Links Section -->

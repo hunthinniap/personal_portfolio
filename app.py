@@ -50,7 +50,7 @@ def home():
 @app.route("/photography")
 def photography():
     photo_collections = read_cover()
-    return render_template("photography.html", collections=photo_collections)
+    return render_template(g.header+"photography.html", collections=photo_collections)
 
 
 @app.route("/music")
@@ -78,7 +78,7 @@ def photo_collection(collection_name):
     title = read_page_title(collection_name)
     description = read_page_description(collection_name)
     return render_template(
-        "photo_collections.html",
+        "photo_template.html",
         page=collection_name,
         photos=photos,
         title=title,
