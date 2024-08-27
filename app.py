@@ -72,13 +72,13 @@ def music_template(music_title):
 
 
 @app.route("/photography/<collection_name>")
-def photo_collection(collection_name):
+def photo_template(collection_name):
     # Fetch the photo collection details based on collection_name
     photos = read_collections(collection_name)
     title = read_page_title(collection_name)
     description = read_page_description(collection_name)
     return render_template(
-        "photo_template.html",
+        g.header+"photo_template.html",
         page=collection_name,
         photos=photos,
         title=title,
