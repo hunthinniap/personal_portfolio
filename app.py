@@ -103,12 +103,12 @@ def blog_template(blog_name):
 @app.route("/videography")
 def videography():
     specs = read_video_specs()
-    return render_template("videography.html", videos = specs) 
+    return render_template(g.header+"videography.html", videos = specs) 
 
 @app.route("/videography/<video_name>")
 def video_template(video_name):
     ytb_id = read_video_link(video_name)
-    return render_template(g.header+"video_template.html", ytb_id = ytb_id, title=video_name) 
+    return render_template("video_template.html", ytb_id = ytb_id, title=video_name) 
 
 @app.route("/about")
 def about():
