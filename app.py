@@ -65,7 +65,8 @@ def music_template(music_title):
     lyrics = requests.get(music_specs['lyrics']).text
     motivation = requests.get(music_specs['Motivation']).text
     return render_template(
-        "music_template.html",specs = music_specs,
+        g.header+"music_template.html",
+        specs = music_specs,
         lyrics = lyrics,
         motivation=motivation,
     )
