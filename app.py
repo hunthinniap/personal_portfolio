@@ -89,16 +89,16 @@ def photo_template(collection_name):
 @app.route("/blog")
 def blog():
     specs = read_blog_spces()
-    return render_template("blog.html", specs = specs) 
+    return render_template(g.header+"blog.html", specs = specs) 
 
 @app.route("/blog/<blog_name>")
 def blog_template(blog_name):
     blog, is_podcast = read_blog_content(blog_name)
     if is_podcast:
         specs = read_podcast_specs(blog_name)
-        return render_template("blog_template_podcast.html", blog = blog, title=blog_name,specs = specs)
+        return render_template(g.header+"blog_template_podcast.html", blog = blog, title=blog_name,specs = specs)
     else:
-        return render_template("blog_template.html", blog = blog, title=blog_name) 
+        return render_template(g.header+"blog_template.html", blog = blog, title=blog_name) 
 
 @app.route("/videography")
 def videography():
