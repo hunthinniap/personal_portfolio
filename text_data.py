@@ -3,6 +3,12 @@ page_alt = {
     "New York": "I enjoyed the 5-minutes walk home from Roosevelt Island station after hanging out at night. I was never tired of the light from Midtown. Wind in the hair, close the eyes and just image all the stories could be happening right now in this very city.",
     "Train": "The wind and cracking sounds brought by the incoming train break the tranquility in the midnight. When the city is asleep, is the train that keeps connecting the dots.",
     "Waterfront": "Waterfront allows open spaces from the continuously expanding city.",
+    "When We Were Young": "I wish to be forever young",
+    "SXSW": "Nothing else, just pure enjoyment of music",
+    "Into the Mountain": "First solo trip and seek peace in life",
+    "Suburban Emo": "Dead Silence",
+    "The Wild West": "Travelling across the wild west has expanded my horizon",
+    "山海": "于是转身向大海和山里走去",
 }
 
 page_description = {
@@ -10,4 +16,5 @@ page_description = {
     "New York": "New York folds and unfolds everyday.",
     "Train": "Rail tracks are veins to the city and keep it vital.",
     "Waterfront": "I have been living near waterfront by the sea or by the river in my whole life. It is always relieving to walk along the shore or bank and observe urban dwellers enjoy stolen interaction with nature from the city. ",
+    "The Wild West": "A trip to Texas, Colorado, Utah, Arizon, Nevada, New Mexico, and California",
 }

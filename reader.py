@@ -8,14 +8,14 @@ base_url = f"https://raw.githubusercontent.com/hunthinniap/portfolio_asset/{bran
 
 
 def read_cover():
-    url = f"{base_url}Photography/cover_photos/photos.json"
+    url = f"{base_url}Photography/cover_photos/specs.json"
     response = requests.get(url)
     cover_photos = json.loads(response.text)
     return cover_photos
 
 
 def read_collections(collection_name):
-    url = f"{base_url}Photography/{collection_name}/photos.json"
+    url = f"{base_url}Photography/{collection_name}/specs.json"
 
     response = requests.get(url)
     collections = json.loads(response.text)
